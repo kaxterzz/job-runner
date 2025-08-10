@@ -23,8 +23,17 @@ const bottomNavItems = [
   { icon: Settings, label: 'Settings', active: false },
 ]
 
-export default function SideNavigation() {
+interface SideNavigationProps {
+  onHoverChange?: (hovered: boolean) => void
+}
+
+export default function SideNavigation({ onHoverChange }: SideNavigationProps) {
   const [isHovered, setIsHovered] = useState(false)
+
+  const handleHoverChange = (hovered: boolean) => {
+    setIsHovered(hovered)
+    onHoverChange?.(hovered)
+  }
 
   const sidebarVariants = {
     expanded: { width: '240px' },
@@ -85,12 +94,12 @@ export default function SideNavigation() {
   return (
     <TooltipProvider>
       <motion.div
-        className="h-screen bg-slate-100 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col hidden md:flex"
+        className="fixed left-0 top-16 h-[calc(100vh-4rem)] bg-slate-100 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col hidden md:flex z-40"
         variants={sidebarVariants}
         animate={isHovered ? 'expanded' : 'collapsed'}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={() => handleHoverChange(true)}
+        onMouseLeave={() => handleHoverChange(false)}
       >
 
         {/* Top Navigation Items */}

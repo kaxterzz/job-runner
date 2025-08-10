@@ -85,7 +85,7 @@ export default function TopNavigation() {
   return (
     <>
       {/* Desktop Navigation */}
-      <header className="h-16 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 items-center justify-between px-4 hidden md:flex">
+      <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 items-center justify-between px-4 hidden md:flex">
         {/* Left Section - Logo and Breadcrumbs */}
         <div className="flex items-center gap-4">
           {/* Brand Logo */}
@@ -242,7 +242,7 @@ export default function TopNavigation() {
 
       {/* Mobile Navigation */}
       <div className="md:hidden">
-        <header className="h-16 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between px-4">
+        <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between px-4">
           {/* Mobile Menu Toggle */}
           <Button
             variant="ghost"
@@ -352,7 +352,7 @@ export default function TopNavigation() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="bg-slate-900 border-b border-slate-700 overflow-hidden"
+              className="fixed top-16 left-0 right-0 z-40 bg-slate-900 border-b border-slate-700 overflow-hidden"
             >
               <div className="p-4 space-y-4">
                 {/* Breadcrumbs */}
