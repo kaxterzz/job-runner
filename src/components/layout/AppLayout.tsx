@@ -1,14 +1,17 @@
+import React, { useState } from 'react'
 import SideNavigation from '../nav/SideNavigation'
 import TopNavigation from '../nav/TopNavigation'
 import PageHeader from './PageHeader'
-import JobProgress from '../progress/JobProgress'
 import JobTabs from '../tabs/JobTabs'
+import { Toaster } from '../ui/sonner'
 
 interface AppLayoutProps {
   children: React.ReactNode
 }
 
 export default function AppLayout({ children }: AppLayoutProps) {
+  const [isSidebarHovered, setIsSidebarHovered] = useState(false)
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Top Navigation */}
@@ -17,10 +20,16 @@ export default function AppLayout({ children }: AppLayoutProps) {
       {/* Content Area with Sidebar */}
       <div className="flex flex-1 pt-16">
         {/* Side Navigation */}
-        <SideNavigation />
+        <SideNavigation 
+          onHoverChange={setIsSidebarHovered}
+        />
         
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col ml-[60px] h-[calc(100vh-4rem)]">
+        <div 
+          className={`flex-1 flex flex-col h-[calc(100vh-4rem)] transition-all duration-300 ${
+            isSidebarHovered ? 'ml-[240px]' : 'ml-[60px]'
+          }`}
+        >
           {/* Page Header */}
           <PageHeader
             title="Due Diligence Check"
@@ -30,15 +39,13 @@ export default function AppLayout({ children }: AppLayoutProps) {
             onRun={() => console.log('Run clicked')}
           />
           
-          {/* Job Progress */}
-          <JobProgress currentStep={3} />
-          
           {/* Main Content */}
           <main className="flex-1 bg-white dark:bg-slate-800 overflow-auto">
             <JobTabs />
           </main>
         </div>
       </div>
+      <Toaster />
     </div>
   )
 }
