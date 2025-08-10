@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Clock, FileText, History, Calendar } from 'lucide-react'
+import { Clock, FileText, History, Calendar, Play } from 'lucide-react'
 import { Button } from '../ui/button'
+import Run from '../run/Run'
 
 interface TabData {
   id: string
@@ -12,18 +13,25 @@ interface TabData {
 
 interface JobTabsProps {
   defaultTab?: string
+  onRunStateChange?: (isReady: boolean) => void
 }
 
-export default function JobTabs({ defaultTab = 'latest-run' }: JobTabsProps) {
+export default function JobTabs({ defaultTab = 'run', onRunStateChange }: JobTabsProps) {
   const [activeTab, setActiveTab] = useState(defaultTab)
 
   const tabs: TabData[] = [
     {
-      id: 'latest-run',
-      label: 'Latest Run (run--003)',
-      icon: Clock,
-      content: <LatestRunContent />
+      id: 'run',
+      label: 'Run',
+      icon: Play,
+      content: <Run onStateChange={onRunStateChange} />
     },
+    // {
+    //   id: 'latest-run',
+    //   label: 'Latest Run (run--003)',
+    //   icon: Clock,
+    //   content: <LatestRunContent />
+    // },
     {
       id: 'details',
       label: 'Details',

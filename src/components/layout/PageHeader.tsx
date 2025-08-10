@@ -8,6 +8,8 @@ interface PageHeaderProps {
   showRunButton?: boolean
   showDuplicateButton?: boolean
   hasFilesAttached?: boolean
+  isRunEnabled?: boolean
+  runTooltipText?: string
   onDuplicate?: () => void
   onRun?: () => void
 }
@@ -18,6 +20,8 @@ export default function PageHeader({
   showRunButton = true,
   showDuplicateButton = true,
   hasFilesAttached = false,
+  isRunEnabled = false,
+  runTooltipText = "Upload files to enable Run",
   onDuplicate,
   onRun
 }: PageHeaderProps) {
@@ -50,27 +54,27 @@ export default function PageHeader({
             
             {showRunButton && (
               <>
-                {!hasFilesAttached ? (
+                {!isRunEnabled ? (
                   <Tooltip>
                     <TooltipTrigger>
                       <Button
                         onClick={onRun}
-                        disabled={!hasFilesAttached}
-                        className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white disabled:text-slate-500 px-4 py-2"
+                        disabled={!isRunEnabled}
+                        className="flex items-center gap-2 bg-primary hover:bg-primary/90 disabled:bg-muted disabled:text-muted-foreground text-primary-foreground px-4 py-2 transition-all duration-300"
                       >
                         <Play className="w-4 h-4" />
                         Run
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>Upload files to run</p>
+                      <p>{runTooltipText}</p>
                     </TooltipContent>
                   </Tooltip>
                 ) : (
                   <Button
                     onClick={onRun}
-                    disabled={!hasFilesAttached}
-                    className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white disabled:text-slate-500 px-4 py-2"
+                    disabled={!isRunEnabled}
+                    className="flex items-center gap-2 bg-primary hover:bg-primary/90 disabled:bg-muted disabled:text-muted-foreground text-primary-foreground px-4 py-2 transition-all duration-300"
                   >
                     <Play className="w-4 h-4" />
                     Run
