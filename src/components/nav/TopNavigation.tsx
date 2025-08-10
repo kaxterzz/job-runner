@@ -85,7 +85,7 @@ export default function TopNavigation() {
   return (
     <>
       {/* Desktop Navigation */}
-      <header className="h-16 bg-slate-800 border-b border-slate-700 items-center justify-between px-4 hidden md:flex">
+      <header className="h-16 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 items-center justify-between px-4 hidden md:flex">
         {/* Left Section - Logo and Breadcrumbs */}
         <div className="flex items-center gap-4">
           {/* Brand Logo */}
@@ -103,17 +103,17 @@ export default function TopNavigation() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <div className="flex items-center gap-1">
-                  <div className="bg-slate-700 border border-slate-600 rounded-md px-3 py-1.5 hover:bg-slate-600 cursor-pointer">
-                    <span className="text-slate-300 text-sm">Maximum Profit Project</span>
+                  <div className="bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md px-3 py-1.5 hover:bg-slate-200 dark:hover:bg-slate-600 cursor-pointer">
+                    <span className="text-slate-700 dark:text-slate-300 text-sm">Maximum Profit Project</span>
                   </div>
-                  <div className="bg-slate-700 border border-slate-600 rounded-md px-2 py-1.5 hover:bg-slate-600 cursor-pointer">
-                    <ChevronDown className="w-4.5 h-4.5 text-slate-400" />
+                  <div className="bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md px-2 py-1.5 hover:bg-slate-200 dark:hover:bg-slate-600 cursor-pointer">
+                    <ChevronDown className="w-4.5 h-4.5 text-slate-500 dark:text-slate-400" />
                   </div>
                 </div>
               </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-slate-500 mx-3" />
+              <BreadcrumbSeparator className="text-slate-400 dark:text-slate-500 mx-3" />
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-white font-medium">
+                <BreadcrumbPage className="text-slate-800 dark:text-white font-medium">
                   Due Diligence Check
                 </BreadcrumbPage>
               </BreadcrumbItem>
@@ -141,7 +141,7 @@ export default function TopNavigation() {
                 >
                   <Input
                     placeholder="Search..."
-                    className="w-full bg-slate-700 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-500"
+                    className="w-full bg-slate-100 dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-800 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:border-blue-500"
                   />
                 </motion.div>
               )}
@@ -242,7 +242,7 @@ export default function TopNavigation() {
 
       {/* Mobile Navigation */}
       <div className="md:hidden">
-        <header className="h-16 bg-slate-800 border-b border-slate-700 flex items-center justify-between px-4">
+        <header className="h-16 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between px-4">
           {/* Mobile Menu Toggle */}
           <Button
             variant="ghost"
@@ -383,7 +383,7 @@ export default function TopNavigation() {
                 <div>
                   <Input
                     placeholder="Search..."
-                    className="w-full bg-slate-700 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-500"
+                    className="w-full bg-slate-100 dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-800 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:border-blue-500"
                   />
                 </div>
 

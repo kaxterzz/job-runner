@@ -46,8 +46,8 @@ export default function SideNavigation() {
         className={`
           w-full justify-start h-10 px-3
           ${item.active 
-            ? 'bg-slate-800 text-white hover:bg-slate-700' 
-            : 'text-slate-400 hover:text-white hover:bg-slate-800'
+            ? 'bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-slate-300 dark:hover:bg-slate-700' 
+            : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800'
           }
           ${!isHovered ? 'justify-center px-0' : ''}
         `}
@@ -85,7 +85,7 @@ export default function SideNavigation() {
   return (
     <TooltipProvider>
       <motion.div
-        className="h-screen bg-slate-900 border-r border-slate-800 flex flex-col hidden md:flex"
+        className="h-screen bg-slate-100 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col hidden md:flex"
         variants={sidebarVariants}
         animate={isHovered ? 'expanded' : 'collapsed'}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -99,7 +99,7 @@ export default function SideNavigation() {
         </nav>
 
         {/* Separator */}
-        <div className="border-t border-slate-800 my-2"></div>
+        <div className="border-t border-slate-300 dark:border-slate-800 my-2"></div>
 
         {/* Bottom Navigation Items */}
         <nav className="p-2 space-y-1">
