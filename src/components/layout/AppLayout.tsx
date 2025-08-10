@@ -2,6 +2,7 @@ import SideNavigation from '../nav/SideNavigation'
 import TopNavigation from '../nav/TopNavigation'
 import PageHeader from './PageHeader'
 import JobProgress from '../progress/JobProgress'
+import JobTabs from '../tabs/JobTabs'
 
 interface AppLayoutProps {
   children: React.ReactNode
@@ -14,12 +15,12 @@ export default function AppLayout({ children }: AppLayoutProps) {
       <TopNavigation />
       
       {/* Content Area with Sidebar */}
-      <div className="flex flex-1">
+      <div className="flex flex-1 pt-16">
         {/* Side Navigation */}
         <SideNavigation />
         
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col ml-[60px] h-[calc(100vh-4rem)]">
           {/* Page Header */}
           <PageHeader
             title="Due Diligence Check"
@@ -33,11 +34,8 @@ export default function AppLayout({ children }: AppLayoutProps) {
           <JobProgress currentStep={3} />
           
           {/* Main Content */}
-          <main className="flex-1 bg-slate-50 dark:bg-slate-900 p-8">
-            <div className="text-slate-800 dark:text-white">
-              Some content
-            </div>
-            {children}
+          <main className="flex-1 bg-white dark:bg-slate-800 overflow-auto">
+            <JobTabs />
           </main>
         </div>
       </div>

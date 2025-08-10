@@ -85,7 +85,7 @@ export default function SideNavigation() {
   return (
     <TooltipProvider>
       <motion.div
-        className="h-screen bg-slate-100 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col hidden md:flex"
+        className="fixed left-0 top-16 h-[calc(100vh-4rem)] bg-slate-100 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col hidden md:flex z-40"
         variants={sidebarVariants}
         animate={isHovered ? 'expanded' : 'collapsed'}
         transition={{ duration: 0.3, ease: 'easeInOut' }}

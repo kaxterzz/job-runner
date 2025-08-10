@@ -22,14 +22,14 @@ export default function JobProgress({ currentStep, totalSteps = 4 }: JobProgress
   const progressPercentage = Math.min(((currentStep - 1) / (totalSteps - 1)) * 100, 100)
 
   return (
-    <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-6">
+    <div className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-6 py-6">
       <div className="w-full">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-slate-800 dark:text-white">
+          <h2 className="text-xl font-semibold text-foreground">
             Job Progress
           </h2>
-          <span className="text-sm text-slate-500 dark:text-slate-400">
+          <span className="text-sm text-muted-foreground">
             {Math.min(currentStep, totalSteps)} of {totalSteps} steps completed
           </span>
         </div>
@@ -37,10 +37,10 @@ export default function JobProgress({ currentStep, totalSteps = 4 }: JobProgress
         {/* Progress Bar */}
         <div className="relative mb-8">
           {/* Background bar */}
-          <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full">
+          <div className="w-full h-2 bg-muted rounded-full">
             {/* Progress fill */}
             <div 
-              className="h-full bg-green-500 rounded-full transition-all duration-500 ease-out"
+              className="h-full bg-primary rounded-full transition-all duration-500 ease-out"
               style={{ width: `${progressPercentage}%` }}
             />
           </div>
@@ -56,10 +56,10 @@ export default function JobProgress({ currentStep, totalSteps = 4 }: JobProgress
                   className={`
                     flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300
                     ${step.status === 'completed' 
-                      ? 'bg-green-500 border-green-500 text-white' 
+                      ? 'bg-primary border-primary text-primary-foreground' 
                       : step.status === 'current'
-                      ? 'bg-blue-500 border-blue-500 text-white'
-                      : 'bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-400 dark:text-slate-500'
+                      ? 'bg-secondary border-secondary text-secondary-foreground'
+                      : 'bg-background border-border text-muted-foreground'
                     }
                   `}
                 >
@@ -74,10 +74,10 @@ export default function JobProgress({ currentStep, totalSteps = 4 }: JobProgress
                 <div className="ml-3">
                   <p 
                     className={`
-                      text-sm font-medium
+                      text-sm font-medium transition-colors duration-300
                       ${step.status === 'completed' || step.status === 'current'
-                        ? 'text-slate-800 dark:text-white'
-                        : 'text-slate-400 dark:text-slate-500'
+                        ? 'text-foreground'
+                        : 'text-muted-foreground'
                       }
                     `}
                   >
