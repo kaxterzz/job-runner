@@ -2,19 +2,19 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { 
   FileText, 
-  BarChart3, 
   MessageSquare, 
   BookOpen,
   User,
-  Settings
+  Settings,
+  SquarePlus
 } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip'
 
 const topNavItems = [
-  { icon: FileText, label: 'Documents', active: true },
-  { icon: BarChart3, label: 'Analytics', active: false },
   { icon: MessageSquare, label: 'Messages', active: false },
+  { icon: SquarePlus, label: 'New Tab', active: false },
+  { icon: FileText, label: 'Documents', active: true },
 ]
 
 const bottomNavItems = [
@@ -92,22 +92,6 @@ export default function SideNavigation() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Logo/Brand Area */}
-        <div className="p-4 border-b border-slate-800">
-          <motion.div
-            className="flex items-center gap-3"
-            variants={contentVariants}
-            animate={isHovered ? 'expanded' : 'collapsed'}
-            transition={{ duration: 0.2, delay: 0.1 }}
-          >
-            <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
-              <FileText className="w-4 h-4 text-white" />
-            </div>
-            {isHovered && (
-              <span className="text-white font-semibold">SigTech</span>
-            )}
-          </motion.div>
-        </div>
 
         {/* Top Navigation Items */}
         <nav className="flex-1 p-2 space-y-1">

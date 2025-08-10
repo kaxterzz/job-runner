@@ -9,7 +9,7 @@ import {
   ChevronDown,
   Menu,
   FileText, 
-  BarChart3, 
+  SquarePlus, 
   MessageSquare, 
   BookOpen,
   User,
@@ -21,7 +21,6 @@ import { Input } from '../ui/input'
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -34,12 +33,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
-import { Badge } from '../ui/badge'
 
 const topNavItems = [
-  { icon: FileText, label: 'Documents' },
-  { icon: BarChart3, label: 'Analytics' },
   { icon: MessageSquare, label: 'Messages' },
+  { icon: SquarePlus, label: 'New Tab' },
+  { icon: FileText, label: 'Documents' },
 ]
 
 const bottomNavItems = [
@@ -88,24 +86,32 @@ export default function TopNavigation() {
     <>
       {/* Desktop Navigation */}
       <header className="h-16 bg-slate-800 border-b border-slate-700 items-center justify-between px-4 hidden md:flex">
-        {/* Left Section - Breadcrumbs */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
-        >
+        {/* Left Section - Logo and Breadcrumbs */}
+        <div className="flex items-center gap-4">
+          {/* Brand Logo */}
+          <div className="w-8 h-8 flex items-center justify-center">
+            <img src="/favicon.svg" alt="SigTech" className="w-8 h-8" />
+          </div>
+          
+          {/* Breadcrumbs */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
+          >
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink 
-                  href="#" 
-                  className="text-slate-400 hover:text-white flex items-center gap-2"
-                >
-                  <ChevronDown className="w-4 h-4" />
-                  Maximum Profit Project
-                </BreadcrumbLink>
+                <div className="flex items-center gap-1">
+                  <div className="bg-slate-700 border border-slate-600 rounded-md px-3 py-1.5 hover:bg-slate-600 cursor-pointer">
+                    <span className="text-slate-300 text-sm">Maximum Profit Project</span>
+                  </div>
+                  <div className="bg-slate-700 border border-slate-600 rounded-md px-2 py-1.5 hover:bg-slate-600 cursor-pointer">
+                    <ChevronDown className="w-4.5 h-4.5 text-slate-400" />
+                  </div>
+                </div>
               </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-slate-500" />
+              <BreadcrumbSeparator className="text-slate-500 mx-3" />
               <BreadcrumbItem>
                 <BreadcrumbPage className="text-white font-medium">
                   Due Diligence Check
@@ -113,7 +119,8 @@ export default function TopNavigation() {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Right Section */}
         <div className="flex items-center gap-3">
@@ -164,12 +171,7 @@ export default function TopNavigation() {
               >
                 <Bell className="w-5 h-5" />
                 {unreadCount > 0 && (
-                  <Badge
-                    variant="destructive"
-                    className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center text-xs"
-                  >
-                    {unreadCount}
-                  </Badge>
+                  <div className="absolute bottom-1 right-0 w-2 h-2 bg-yellow-400 rounded-full"></div>
                 )}
               </Button>
             </DropdownMenuTrigger>
@@ -253,8 +255,8 @@ export default function TopNavigation() {
 
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
-              <FileText className="w-4 h-4 text-white" />
+            <div className="w-8 h-8 flex items-center justify-center">
+              <img src="/favicon.svg" alt="SigTech" className="w-8 h-8" />
             </div>
             <span className="text-white font-semibold">SigTech</span>
           </div>
@@ -280,12 +282,7 @@ export default function TopNavigation() {
                 >
                   <Bell className="w-5 h-5" />
                   {unreadCount > 0 && (
-                    <Badge
-                      variant="destructive"
-                      className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center text-xs"
-                    >
-                      {unreadCount}
-                    </Badge>
+                    <div className="absolute bottom-1 right-0 w-2 h-2 bg-yellow-400 rounded-full"></div>
                   )}
                 </Button>
               </DropdownMenuTrigger>
@@ -363,15 +360,16 @@ export default function TopNavigation() {
                   <Breadcrumb>
                     <BreadcrumbList>
                       <BreadcrumbItem>
-                        <BreadcrumbLink 
-                          href="#" 
-                          className="text-slate-400 hover:text-white flex items-center gap-2"
-                        >
-                          <ChevronDown className="w-4 h-4" />
-                          Maximum Profit Project
-                        </BreadcrumbLink>
+                        <div className="flex items-center gap-1">
+                          <div className="bg-slate-700 border border-slate-600 rounded-md px-3 py-1.5 hover:bg-slate-600 cursor-pointer">
+                            <span className="text-slate-300 text-sm">Maximum Profit Project</span>
+                          </div>
+                          <div className="bg-slate-700 border border-slate-600 rounded-md px-2 py-1.5 hover:bg-slate-600 cursor-pointer">
+                            <ChevronDown className="w-4 h-4 text-slate-400" />
+                          </div>
+                        </div>
                       </BreadcrumbItem>
-                      <BreadcrumbSeparator className="text-slate-500" />
+                      <BreadcrumbSeparator className="text-slate-500 mx-3" />
                       <BreadcrumbItem>
                         <BreadcrumbPage className="text-white font-medium">
                           Due Diligence Check

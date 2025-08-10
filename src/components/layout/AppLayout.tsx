@@ -7,14 +7,14 @@ interface AppLayoutProps {
 
 export default function AppLayout({ children }: AppLayoutProps) {
   return (
-    <div className="min-h-screen flex">
-      {/* Side Navigation */}
-      <SideNavigation />
+    <div className="min-h-screen flex flex-col">
+      {/* Top Navigation */}
+      <TopNavigation />
       
-      {/* Main Content Area */}
-      <div className="flex-1 flex flex-col">
-        {/* Top Navigation */}
-        <TopNavigation />
+      {/* Content Area with Sidebar */}
+      <div className="flex flex-1">
+        {/* Side Navigation */}
+        <SideNavigation />
         
         {/* Main Content */}
         <main className="flex-1 bg-slate-50 dark:bg-slate-900 p-8">
