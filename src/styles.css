@@ -19,76 +19,76 @@ code {
 }
 
 :root {
-  /* Light mode (Pollux UI–Inspired) */
+  /* Light mode (Blue Theme) */
   --background: oklch(0.985 0 0); /* Background #F8F9FA */
   --foreground: oklch(0.141 0.005 285.823); /* Text primary #1F2937 */
   --card: oklch(0.985 0 0); /* Card bg #FFFFFF */
   --card-foreground: oklch(0.141 0.005 285.823); /* Card text #1F2937 */
   --popover: oklch(0.985 0 0); /* Popover bg #FFFFFF */
   --popover-foreground: oklch(0.141 0.005 285.823); /* Popover text #1F2937 */
-  --primary: oklch(0.556 0.241 295.392); /* Primary purple #844FC1 */
+  --primary: oklch(0.733 0.123 242.5); /* Primary blue #69B3F3 */
   --primary-foreground: oklch(1 0 0); /* Primary foreground #FFFFFF */
-  --secondary: oklch(0.745 0.093 249.915); /* Secondary blue #3B86D1 */
-  --secondary-foreground: oklch(1 0 0); /* Secondary foreground #FFFFFF */
+  --secondary: oklch(0.833 0.085 242.5); /* Secondary light blue #A1C8F7 */
+  --secondary-foreground: oklch(0.2 0.01 242.5); /* Secondary foreground dark */
   --muted: oklch(0.967 0.001 286.375); /* Muted bg #F2F4F8 */
   --muted-foreground: oklch(0.552 0.016 285.938); /* Muted text #6C7293 */
-  --accent: oklch(0.745 0.093 249.915); /* Accent blue #3B86D1 */
-  --accent-foreground: oklch(1 0 0); /* Accent foreground #FFFFFF */
+  --accent: oklch(0.833 0.085 242.5); /* Accent light blue #A1C8F7 */
+  --accent-foreground: oklch(0.2 0.01 242.5); /* Accent foreground dark */
   --destructive: oklch(0.741 0.215 142.5); /* Destructive red #E74C3C */
   --destructive-foreground: oklch(1 0 0); /* Destructive text #FFFFFF */
   --border: oklch(0.92 0.004 286.32); /* Border #E5E7EB */
   --input: oklch(0.92 0.004 286.32); /* Input border #E5E7EB */
-  --ring: oklch(0.871 0.006 286.286); /* Ring #D1D5DB */
-  --chart-1: oklch(0.646 0.222 41.116); /* Chart1 orange */
-  --chart-2: oklch(0.6 0.118 184.704); /* Chart2 teal */
-  --chart-3: oklch(0.398 0.07 227.392); /* Chart3 blue */
-  --chart-4: oklch(0.828 0.189 84.429); /* Chart4 yellow */
-  --chart-5: oklch(0.769 0.188 70.08); /* Chart5 green */
+  --ring: oklch(0.733 0.123 242.5); /* Ring matches primary #69B3F3 */
+  --chart-1: oklch(0.733 0.123 242.5); /* Chart1 primary blue */
+  --chart-2: oklch(0.833 0.085 242.5); /* Chart2 light blue */
+  --chart-3: oklch(0.633 0.161 242.5); /* Chart3 darker blue */
+  --chart-4: oklch(0.933 0.047 242.5); /* Chart4 very light blue */
+  --chart-5: oklch(0.533 0.199 242.5); /* Chart5 dark blue */
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0); /* Sidebar bg #FFFFFF */
   --sidebar-foreground: oklch(0.141 0.005 285.823); /* Sidebar text #1F2937 */
-  --sidebar-primary: oklch(0.556 0.241 295.392); /* Sidebar primary #844FC1 */
+  --sidebar-primary: oklch(0.733 0.123 242.5); /* Sidebar primary #69B3F3 */
   --sidebar-primary-foreground: oklch(1 0 0); /* Sidebar primary fg #FFFFFF */
-  --sidebar-accent: oklch(0.745 0.093 249.915); /* Sidebar accent blue #3B86D1 */
-  --sidebar-accent-foreground: oklch(1 0 0); /* Sidebar accent fg #FFFFFF */
+  --sidebar-accent: oklch(0.833 0.085 242.5); /* Sidebar accent light blue */
+  --sidebar-accent-foreground: oklch(0.2 0.01 242.5); /* Sidebar accent fg dark */
   --sidebar-border: oklch(0.92 0.004 286.32); /* Sidebar border #E5E7EB */
-  --sidebar-ring: oklch(0.871 0.006 286.286); /* Sidebar ring #D1D5DB */
+  --sidebar-ring: oklch(0.733 0.123 242.5); /* Sidebar ring matches primary */
 }
 
 .dark {
-  /* Dark mode (Pollux UI–Inspired) */
-  --background: oklch(0.141 0.005 285.823); /* Background #0F172A */
+  /* Dark mode (Blue Theme) */
+  --background: oklch(20.8% 0.042 265.755); /* Background #0F172B */
   --foreground: oklch(0.985 0 0); /* Text primary #F9FAFB */
-  --card: oklch(0.141 0.005 285.823); /* Card bg #0F172A */
+  --card: oklch(20.8% 0.042 265.755); /* Card bg #0F172B */
   --card-foreground: oklch(0.985 0 0); /* Card text #F9FAFB */
-  --popover: oklch(0.141 0.005 285.823); /* Popover bg #0F172A */
+  --popover: oklch(0.274 0.006 286.033); /* Popover bg #334155 */
   --popover-foreground: oklch(0.985 0 0); /* Popover text #F9FAFB */
-  --primary: oklch(0.673 0.218 295.392); /* Primary purple #9F6BDE */
-  --primary-foreground: oklch(1 0 0); /* Primary foreground #FFFFFF */
-  --secondary: oklch(0.686 0.121 249.915); /* Secondary blue #4FA3FF */
+  --primary: oklch(0.733 0.123 242.5); /* Primary blue #69B3F3 */
+  --primary-foreground: oklch(0.1 0 0); /* Primary foreground dark */
+  --secondary: oklch(0.633 0.161 242.5); /* Secondary darker blue #3A8AE8 */
   --secondary-foreground: oklch(1 0 0); /* Secondary foreground #FFFFFF */
-  --muted: oklch(0.274 0.006 286.033); /* Muted bg #1E293B */
+  --muted: oklch(35.953% 0.04898 268.304); /* Muted bg #475569 */
   --muted-foreground: oklch(0.705 0.015 286.067); /* Muted text #94A3B8 */
-  --accent: oklch(0.686 0.121 249.915); /* Accent blue #4FA3FF */
+  --accent: oklch(0.633 0.161 242.5); /* Accent darker blue #3A8AE8 */
   --accent-foreground: oklch(1 0 0); /* Accent fg #FFFFFF */
   --destructive: oklch(0.55 0.214 142.5); /* Destructive red #DC2626 */
   --destructive-foreground: oklch(1 0 0); /* Destructive fg #FFFFFF */
-  --border: oklch(0.274 0.006 286.033); /* Border #1E293B */
-  --input: oklch(0.274 0.006 286.033); /* Input border #1E293B */
-  --ring: oklch(0.442 0.017 285.786); /* Ring #475569 */
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.21 0.006 285.885); /* Sidebar bg #1E293B */
+  --border: oklch(27.9% 0.041 260.031); /* Border #1d293d */
+  --input: oklch(27.9% 0.041 260.031); /* Input border #1d293d */
+  --ring: oklch(0.733 0.123 242.5); /* Ring matches primary #69B3F3 */
+  --chart-1: oklch(0.733 0.123 242.5); /* Chart1 primary blue */
+  --chart-2: oklch(0.833 0.085 242.5); /* Chart2 light blue */
+  --chart-3: oklch(0.633 0.161 242.5); /* Chart3 darker blue */
+  --chart-4: oklch(0.533 0.199 242.5); /* Chart4 dark blue */
+  --chart-5: oklch(0.433 0.237 242.5); /* Chart5 very dark blue */
+  --sidebar: oklch(0.274 0.006 286.033); /* Sidebar bg #334155 */
   --sidebar-foreground: oklch(0.985 0 0); /* Sidebar text #F9FAFB */
-  --sidebar-primary: oklch(0.673 0.218 295.392); /* Sidebar primary #9F6BDE */
-  --sidebar-primary-foreground: oklch(1 0 0); /* Sidebar primary fg #FFFFFF */
-  --sidebar-accent: oklch(0.686 0.121 249.915); /* Sidebar accent #4FA3FF */
+  --sidebar-primary: oklch(0.733 0.123 242.5); /* Sidebar primary #69B3F3 */
+  --sidebar-primary-foreground: oklch(0.1 0 0); /* Sidebar primary fg dark */
+  --sidebar-accent: oklch(0.633 0.161 242.5); /* Sidebar accent darker blue */
   --sidebar-accent-foreground: oklch(1 0 0); /* Sidebar accent fg #FFFFFF */
-  --sidebar-border: oklch(0.274 0.006 286.033); /* Sidebar border #1E293B */
-  --sidebar-ring: oklch(0.442 0.017 285.786); /* Sidebar ring #475569 */
+  --sidebar-border: oklch(0.328 0.008 286.1); /* Sidebar border #475569 */
+  --sidebar-ring: oklch(0.733 0.123 242.5); /* Sidebar ring matches primary */
 }
 
 @theme inline {

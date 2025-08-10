@@ -26,9 +26,9 @@ export default function AppLayout({ children }: AppLayoutProps) {
         
         {/* Main Content Area */}
         <div 
-          className={`flex-1 flex flex-col h-[calc(100vh-4rem)] transition-all duration-300 ${
-            isSidebarHovered ? 'ml-[240px]' : 'ml-[60px]'
-          }`}
+          className={`flex-1 flex flex-col min-h-0 transition-all duration-300 ${
+            isSidebarHovered ? 'md:ml-[240px]' : 'md:ml-[60px]'
+          } ml-0`}
         >
           {/* Page Header */}
           <PageHeader

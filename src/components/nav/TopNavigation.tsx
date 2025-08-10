@@ -352,7 +352,7 @@ export default function TopNavigation() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="bg-slate-900 border-b border-slate-700 overflow-hidden"
+              className="fixed top-16 left-0 right-0 z-40 bg-slate-900 border-b border-slate-700 overflow-hidden"
             >
               <div className="p-4 space-y-4">
                 {/* Breadcrumbs */}
