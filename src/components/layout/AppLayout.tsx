@@ -1,6 +1,7 @@
 import SideNavigation from '../nav/SideNavigation'
 import TopNavigation from '../nav/TopNavigation'
 import PageHeader from './PageHeader'
+import JobProgress from '../progress/JobProgress'
 
 interface AppLayoutProps {
   children: React.ReactNode
@@ -27,6 +28,9 @@ export default function AppLayout({ children }: AppLayoutProps) {
             onDuplicate={() => console.log('Duplicate clicked')}
             onRun={() => console.log('Run clicked')}
           />
+          
+          {/* Job Progress */}
+          <JobProgress currentStep={3} />
           
           {/* Main Content */}
           <main className="flex-1 bg-slate-50 dark:bg-slate-900 p-8">
