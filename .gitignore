@@ -5,6 +5,14 @@ dist-ssr
 *.local
 count.txt
 .env
+.env.local
+.env.production
 .nitro
 .tanstack
 1 - Starting State.png
+
+# Vercel
+.vercel
+
+# API logs
+api-logs
