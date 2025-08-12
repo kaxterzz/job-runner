@@ -1,117 +1,58 @@
 import { motion } from 'framer-motion'
-import { useState, useCallback, useEffect } from 'react'
-import { Play, Square, RotateCcw } from 'lucide-react'
+import { useCallback } from 'react'
+import { Square, RotateCcw } from 'lucide-react'
 import DynamicInputFields from './DynamicInputFields'
 import FileUpload from './FileUpload'
 import Configuration from './Configuration'
 import FloatingRunButton from './FloatingRunButton'
 import JobTerminal from '../terminal/JobTerminal'
 import JobResults from '../results/JobResults'
-import { useJobExecution } from '../../hooks/useJobExecution'
+import { useJobStore } from '../../stores/jobStore'
 import { Button } from '../ui/button'
-import { Progress } from '../ui/progress'
 
-interface InputField {
-  field: string
-  value: string
-}
-
-interface UploadedFile {
-  id: string
-  name: string
-  size: number
-  type: string
-  extension: string
-}
-
-interface RunProps {
-  onRunClick?: () => void
-  onStateChange?: (isReady: boolean) => void
-}
-
-export default function Run({ onRunClick, onStateChange }: RunProps) {
-  const [inputFields, setInputFields] = useState<InputField[]>([])
-  const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([])
-  const [isInputsValid, setIsInputsValid] = useState(false)
-  const [isFilesValid, setIsFilesValid] = useState(false)
-  const [allRequiredFilesUploaded, setAllRequiredFilesUploaded] = useState(false)
-
-  // Job execution hook
+export default function Run() {
+  // Get all state and actions from the store
   const {
     status,
-    progress,
     logs,
     results,
-    isRunning,
     isConnected,
-    executeJob,
+    uploadedFiles,
     cancelJob,
-    clearLogs
-  } = useJobExecution()
+    clearLogs,
+    resetJob,
+    setInputFields,
+    setUploadedFiles,
+    setIsInputsValid,
+    setIsFilesValid,
+    setAllRequiredFilesUploaded
+  } = useJobStore()
 
-  // Calculate if everything is ready to run
-  const isReadyToRun = isInputsValid && isFilesValid && allRequiredFilesUploaded && !isRunning
-
-  // Update parent component when state changes
-  useEffect(() => {
-    onStateChange?.(isReadyToRun)
-  }, [isReadyToRun, onStateChange])
-
-  const handleInputChange = useCallback((data: InputField[]) => {
+  const handleInputChange = useCallback((data: any[]) => {
     setInputFields(data)
-  }, [])
+  }, [setInputFields])
 
   const handleInputValidationChange = useCallback((isValid: boolean) => {
     setIsInputsValid(isValid)
-  }, [])
+  }, [setIsInputsValid])
 
-  const handleFilesChange = useCallback((files: UploadedFile[]) => {
+  const handleFilesChange = useCallback((files: any[]) => {
     setUploadedFiles(files)
-  }, [])
+  }, [setUploadedFiles])
 
   const handleFilesValidationChange = useCallback((isValid: boolean) => {
     setIsFilesValid(isValid)
-  }, [])
+  }, [setIsFilesValid])
 
   const handleConfigurationChange = useCallback((allRequiredUploaded: boolean) => {
     setAllRequiredFilesUploaded(allRequiredUploaded)
-  }, [])
+  }, [setAllRequiredFilesUploaded])
 
-  const handleRunClick = async () => {
-    if (!isReadyToRun) return
 
-    const jobData = {
-      inputFields,
-      uploadedFiles
-    }
-
-    console.log('Executing job with data:', jobData)
-    
-    const result = await executeJob(jobData)
-    
-    if (result.success) {
-      console.log('Job started successfully:', result.jobId)
-    } else {
-      console.error('Failed to start job:', result.error)
-    }
-
-    onRunClick?.()
-  }
-
-  const handleNewRun = () => {
-    // Reset job state for a new run
-    if (isRunning) {
-      cancelJob()
-    }
-    clearLogs()
-    
-    // Reset component state to default
-    setInputFields([])
-    setUploadedFiles([])
-    setIsInputsValid(false)
-    setIsFilesValid(false)
-    setAllRequiredFilesUploaded(false)
-  }
+  const handleNewRun = useCallback(() => {
+    console.log('In handleNewRun func')
+    resetJob()
+  }, [resetJob])
 
   return (
     <div className="space-y-8 p-6 max-w-full">
@@ -138,7 +79,10 @@ export default function Run({ onRunClick, onStateChange }: RunProps) {
         {!isConnected && (
           <div className="mt-4 p-3 bg-destructive/10 border border-destructive/20 rounded-lg">
             <p className="text-sm text-destructive">
-              ⚠️ Not connected to job server. Live updates will not be available.
+              ⚠️ Job server unavailable. Start the backend server to enable job execution.
+            </p>
+            <p className="text-xs text-muted-foreground mt-1">
+              Run: npm run server (port 3002) or npm run dev:full
             </p>
           </div>
         )}
@@ -236,10 +180,7 @@ export default function Run({ onRunClick, onStateChange }: RunProps) {
           </motion.div>
 
           {/* Floating Action Button */}
-          <FloatingRunButton
-            show={isReadyToRun}
-            onClick={handleRunClick}
-          />
+          <FloatingRunButton />
         </>
       )}
     </div>

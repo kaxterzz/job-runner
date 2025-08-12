@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Download, FileText, BarChart3, Clock, Users, AlertTriangle } from 'lucide-react'
+import { Download, FileText, BarChart3, Clock, Variable, AlertTriangle } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 
@@ -83,7 +83,7 @@ export default function JobResults({ results, className = '' }: JobResultsProps)
           transition={{ delay: 0.4 }}
         >
           <Card className="p-4 text-center">
-            <Users className="w-6 h-6 text-green-500 mx-auto mb-2" />
+            <Variable className="w-6 h-6 text-green-500 mx-auto mb-2" />
             <div className="text-2xl font-bold text-foreground">{results.metrics.parametersUsed}</div>
             <div className="text-xs text-muted-foreground">Parameters Used</div>
           </Card>

@@ -15,7 +15,7 @@ import {
   User,
   Settings
 } from 'lucide-react'
-import { useAppStore } from '../../lib/store'
+import { useAppStore } from '../../stores/notificationStore'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import {
@@ -175,35 +175,35 @@ export default function TopNavigation() {
                 )}
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-80 bg-slate-800 border-slate-700">
-              <DropdownMenuLabel className="text-white">
+            <DropdownMenuContent align="end" className="w-80 bg-background border-border">
+              <DropdownMenuLabel className="text-foreground">
                 Notifications ({unreadCount} unread)
               </DropdownMenuLabel>
-              <DropdownMenuSeparator className="bg-slate-700" />
+              <DropdownMenuSeparator />
               <div className="max-h-96 overflow-y-auto">
                 {notifications.length === 0 ? (
-                  <div className="p-4 text-center text-slate-400">
+                  <div className="p-4 text-center text-muted-foreground">
                     No notifications
                   </div>
                 ) : (
                   notifications.map((notification) => (
                     <DropdownMenuItem
                       key={notification.id}
-                      className="p-4 cursor-pointer hover:bg-slate-700 focus:bg-slate-700"
+                      className="p-4 cursor-pointer hover:bg-accent focus:bg-accent"
                       onClick={() => markAsRead(notification.id)}
                     >
                       <div className="flex items-start gap-3 w-full">
                         <div className={`w-2 h-2 rounded-full mt-2 ${getNotificationColor(notification.type)}`} />
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between">
-                            <h4 className={`text-sm font-medium ${notification.isRead ? 'text-slate-400' : 'text-white'}`}>
+                            <h4 className={`text-sm font-medium ${notification.isRead ? 'text-muted-foreground' : 'text-foreground'}`}>
                               {notification.title}
                             </h4>
-                            <span className="text-xs text-slate-500">
+                            <span className="text-xs text-muted-foreground">
                               {formatTimeAgo(notification.timestamp)}
                             </span>
                           </div>
-                          <p className={`text-sm ${notification.isRead ? 'text-slate-500' : 'text-slate-300'} mt-1`}>
+                          <p className={`text-sm ${notification.isRead ? 'text-muted-foreground' : 'text-foreground'} mt-1`}>
                             {notification.message}
                           </p>
                         </div>
@@ -286,35 +286,35 @@ export default function TopNavigation() {
                   )}
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-80 bg-slate-800 border-slate-700">
-                <DropdownMenuLabel className="text-white">
+              <DropdownMenuContent align="end" className="w-80 bg-background border-border">
+                <DropdownMenuLabel className="text-foreground">
                   Notifications ({unreadCount} unread)
                 </DropdownMenuLabel>
-                <DropdownMenuSeparator className="bg-slate-700" />
+                <DropdownMenuSeparator />
                 <div className="max-h-96 overflow-y-auto">
                   {notifications.length === 0 ? (
-                    <div className="p-4 text-center text-slate-400">
+                    <div className="p-4 text-center text-muted-foreground">
                       No notifications
                     </div>
                   ) : (
                     notifications.map((notification) => (
                       <DropdownMenuItem
                         key={notification.id}
-                        className="p-4 cursor-pointer hover:bg-slate-700 focus:bg-slate-700"
+                        className="p-4 cursor-pointer hover:bg-accent focus:bg-accent"
                         onClick={() => markAsRead(notification.id)}
                       >
                         <div className="flex items-start gap-3 w-full">
                           <div className={`w-2 h-2 rounded-full mt-2 ${getNotificationColor(notification.type)}`} />
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between">
-                              <h4 className={`text-sm font-medium ${notification.isRead ? 'text-slate-400' : 'text-white'}`}>
+                              <h4 className={`text-sm font-medium ${notification.isRead ? 'text-muted-foreground' : 'text-foreground'}`}>
                                 {notification.title}
                               </h4>
-                              <span className="text-xs text-slate-500">
+                              <span className="text-xs text-muted-foreground">
                                 {formatTimeAgo(notification.timestamp)}
                               </span>
                             </div>
-                            <p className={`text-sm ${notification.isRead ? 'text-slate-500' : 'text-slate-300'} mt-1`}>
+                            <p className={`text-sm ${notification.isRead ? 'text-muted-foreground' : 'text-foreground'} mt-1`}>
                               {notification.message}
                             </p>
                           </div>

@@ -1,13 +1,33 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { Play, Sparkles } from 'lucide-react'
+import { useCallback } from 'react'
 import { Button } from '../ui/button'
+import { useJobStore } from '../../stores/jobStore'
 
-interface FloatingRunButtonProps {
-  show: boolean
-  onClick: () => void
-}
+export default function FloatingRunButton() {
+  const { isReadyToRun, status, inputFields, uploadedFiles, executeJob } = useJobStore()
+  
+  // Only show when ready to run and in configuration view (idle status)
+  const show = isReadyToRun && status === 'idle'
 
-export default function FloatingRunButton({ show, onClick }: FloatingRunButtonProps) {
+  const handleClick = useCallback(async () => {
+    if (!isReadyToRun) return
+
+    const jobData = {
+      inputFields,
+      uploadedFiles
+    }
+
+    console.log('Executing job with data:', jobData)
+    
+    const result = await executeJob(jobData)
+    
+    if (result.success) {
+      console.log('Job started successfully:', result.jobId)
+    } else {
+      console.error('Failed to start job:', result.error)
+    }
+  }, [isReadyToRun, inputFields, uploadedFiles, executeJob])
   return (
     <AnimatePresence>
       {show && (
@@ -99,7 +119,7 @@ export default function FloatingRunButton({ show, onClick }: FloatingRunButtonPr
             className="relative"
           >
             <Button
-              onClick={onClick}
+              onClick={handleClick}
               size="lg"
               className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-primary-foreground/10"
             >

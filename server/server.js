@@ -9,7 +9,7 @@ const server = createServer(app);
 // Configure Socket.IO with CORS
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"],
     methods: ["GET", "POST"]
   }
 });
@@ -257,7 +257,7 @@ async function executeJobSimulation(jobId) {
   }, 1000);
 }
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 server.listen(PORT, () => {
   console.log(`🚀 Mock server running on port ${PORT}`);

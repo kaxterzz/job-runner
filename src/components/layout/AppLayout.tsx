@@ -6,12 +6,11 @@ import JobTabs from '../tabs/JobTabs'
 import { Toaster } from '../ui/sonner'
 
 interface AppLayoutProps {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
-export default function AppLayout({ children }: AppLayoutProps) {
+export default function AppLayout({ }: AppLayoutProps) {
   const [isSidebarHovered, setIsSidebarHovered] = useState(false)
-  const [isRunReady, setIsRunReady] = useState(false)
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -35,15 +34,12 @@ export default function AppLayout({ children }: AppLayoutProps) {
           <PageHeader
             title="Due Diligence Check"
             description="This job performs a high level analysis from uploaded company data packs (e.g. financial statements, management presentations, market research) to generate a comprehensive IC (Investment Committee) documentation for investment decisions."
-            isRunEnabled={isRunReady}
-            runTooltipText={isRunReady ? "Ready to execute job" : "Complete configuration to enable run"}
             onDuplicate={() => console.log('Duplicate clicked')}
-            onRun={() => console.log('Run clicked')}
           />
           
           {/* Main Content */}
           <main className="flex-1 bg-white dark:bg-slate-800 overflow-auto">
-            <JobTabs onRunStateChange={setIsRunReady} />
+            <JobTabs />
           </main>
         </div>
       </div>

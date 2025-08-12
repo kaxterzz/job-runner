@@ -13,10 +13,9 @@ interface TabData {
 
 interface JobTabsProps {
   defaultTab?: string
-  onRunStateChange?: (isReady: boolean) => void
 }
 
-export default function JobTabs({ defaultTab = 'run', onRunStateChange }: JobTabsProps) {
+export default function JobTabs({ defaultTab = 'run' }: JobTabsProps) {
   const [activeTab, setActiveTab] = useState(defaultTab)
 
   const tabs: TabData[] = [
@@ -24,7 +23,7 @@ export default function JobTabs({ defaultTab = 'run', onRunStateChange }: JobTab
       id: 'run',
       label: 'Run',
       icon: Play,
-      content: <Run onStateChange={onRunStateChange} />
+      content: <Run />
     },
     // {
     //   id: 'latest-run',
