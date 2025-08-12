@@ -2,12 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { Terminal, Copy, Download, } from 'lucide-react'
 import { Button } from '../ui/button'
-
-interface LogEntry {
-  timestamp: string
-  message: string
-  type: 'info' | 'success' | 'error' | 'warning' | 'param' | 'file'
-}
+import type { LogEntry } from '../../types'
 
 interface JobTerminalProps {
   logs: LogEntry[]

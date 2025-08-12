@@ -2,22 +2,7 @@ import { motion } from 'framer-motion'
 import { Download, FileText, BarChart3, Clock, Variable, AlertTriangle } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
-
-interface JobResults {
-  summary: string
-  reports: Array<{
-    name: string
-    type: string
-    size: string
-    downloadUrl: string
-  }>
-  metrics: {
-    filesProcessed: number
-    parametersUsed: number
-    processingTime: string
-    riskScore: string
-  }
-}
+import type { JobResults } from '../../types'
 
 interface JobResultsProps {
   results: JobResults
