@@ -114,21 +114,6 @@ export default function JobTabs({ defaultTab = 'run' }: JobTabsProps) {
   )
 }
 
-function LatestRunContent() {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
-      className="text-center py-12"
-    >
-      <Clock className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-      <h3 className="text-lg font-medium text-foreground mb-2">Latest Run</h3>
-      <p className="text-sm text-muted-foreground">Latest run content will be displayed here</p>
-    </motion.div>
-  )
-}
-
 function DetailsContent() {
   return (
     <motion.div
