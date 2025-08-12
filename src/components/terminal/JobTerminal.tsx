@@ -21,17 +21,17 @@ interface JobTerminalProps {
 const getLogColor = (type: string) => {
   switch (type) {
     case 'success':
-      return 'text-green-400'
+      return 'text-green-500 dark:text-green-400'
     case 'error':
-      return 'text-red-400'
+      return 'text-red-500 dark:text-red-400'
     case 'warning':
-      return 'text-yellow-400'
+      return 'text-yellow-500 dark:text-yellow-400'
     case 'param':
-      return 'text-blue-400'
+      return 'text-blue-500 dark:text-blue-400'
     case 'file':
-      return 'text-purple-400'
+      return 'text-purple-500 dark:text-purple-400'
     default:
-      return 'text-gray-300'
+      return 'text-muted-foreground'
   }
 }
 
@@ -103,36 +103,36 @@ export default function JobTerminal({
     switch (jobStatus) {
       case 'running':
         return (
-          <div className="flex items-center gap-2 text-green-400">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+          <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
+            <div className="w-2 h-2 bg-green-600 dark:bg-green-400 rounded-full animate-pulse" />
             <span className="text-sm">Running</span>
           </div>
         )
       case 'completed':
         return (
-          <div className="flex items-center gap-2 text-blue-400">
-            <div className="w-2 h-2 bg-blue-400 rounded-full" />
+          <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400">
+            <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full" />
             <span className="text-sm">Completed</span>
           </div>
         )
       case 'failed':
         return (
-          <div className="flex items-center gap-2 text-red-400">
-            <div className="w-2 h-2 bg-red-400 rounded-full" />
+          <div className="flex items-center gap-2 text-red-600 dark:text-red-400">
+            <div className="w-2 h-2 bg-red-600 dark:bg-red-400 rounded-full" />
             <span className="text-sm">Failed</span>
           </div>
         )
       case 'queued':
         return (
-          <div className="flex items-center gap-2 text-yellow-400">
-            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
+          <div className="flex items-center gap-2 text-yellow-600 dark:text-yellow-400">
+            <div className="w-2 h-2 bg-yellow-600 dark:bg-yellow-400 rounded-full animate-pulse" />
             <span className="text-sm">Queued</span>
           </div>
         )
       default:
         return (
-          <div className="flex items-center gap-2 text-gray-400">
-            <div className="w-2 h-2 bg-gray-400 rounded-full" />
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <div className="w-2 h-2 bg-muted-foreground rounded-full" />
             <span className="text-sm">Idle</span>
           </div>
         )
@@ -144,13 +144,13 @@ export default function JobTerminal({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`bg-gray-900 border border-gray-700 rounded-lg overflow-hidden ${className}`}
+      className={`bg-background border border-border rounded-lg overflow-hidden ${className}`}
     >
       {/* Terminal Header */}
-      <div className="bg-gray-800 px-4 py-3 border-b border-gray-700 flex items-center justify-between">
+      <div className="bg-muted px-4 py-3 border-b border-border flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Terminal className="w-5 h-5 text-green-400" />
-          <span className="text-white font-medium">Job Execution Terminal</span>
+          <Terminal className="w-5 h-5 text-green-600 dark:text-green-400" />
+          <span className="text-foreground font-medium">Job Execution Terminal</span>
           {getStatusIndicator()}
         </div>
 
@@ -166,7 +166,7 @@ export default function JobTerminal({
                   terminalRef.current.scrollTop = terminalRef.current.scrollHeight
                 }
               }}
-              className="h-7 px-2 text-xs text-gray-400 hover:text-white hover:bg-gray-700"
+              className="h-7 px-2 text-xs text-muted-foreground hover:text-foreground hover:bg-accent"
             >
               <Download className="w-3 h-3 mr-1" />
               Scroll to bottom
@@ -178,7 +178,7 @@ export default function JobTerminal({
             size="sm"
             onClick={copyLogsToClipboard}
             disabled={logs.length === 0}
-            className="h-7 px-2 text-gray-400 hover:text-white hover:bg-gray-700"
+            className="h-7 px-2 text-muted-foreground hover:text-foreground hover:bg-accent"
           >
             <Copy className="w-3 h-3" />
           </Button>
@@ -189,7 +189,7 @@ export default function JobTerminal({
               size="sm"
               onClick={onClear}
               disabled={logs.length === 0}
-              className="h-7 px-2 text-gray-400 hover:text-white hover:bg-gray-700"
+              className="h-7 px-2 text-muted-foreground hover:text-foreground hover:bg-accent"
             >
               Clear
             </Button>
@@ -201,11 +201,11 @@ export default function JobTerminal({
       <div
         ref={terminalRef}
         onScroll={handleScroll}
-        className="bg-gray-900 p-4 h-96 overflow-y-auto font-mono text-sm leading-relaxed scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800"
+        className="bg-card p-4 h-96 overflow-y-auto font-mono text-sm leading-relaxed scrollbar-thin scrollbar-thumb-border scrollbar-track-muted"
         style={{ scrollBehavior: isAutoScroll ? 'smooth' : 'auto' }}
       >
         {logs.length === 0 ? (
-          <div className="text-gray-500 text-center py-8">
+          <div className="text-muted-foreground text-center py-8">
             <Terminal className="w-8 h-8 mx-auto mb-2 opacity-50" />
             <p>No logs yet. Start a job to see live updates here.</p>
           </div>
@@ -221,10 +221,10 @@ export default function JobTerminal({
                   duration: 0.3,
                   delay: index === logs.length - 1 ? 0.1 : 0
                 }}
-                className="flex gap-3 mb-1 hover:bg-gray-800/30 px-2 py-1 rounded"
+                className="flex gap-3 mb-1 hover:bg-accent/30 px-2 py-1 rounded"
               >
                 {/* Timestamp */}
-                <span className="text-gray-500 text-xs mt-0.5 font-mono shrink-0">
+                <span className="text-muted-foreground text-xs mt-0.5 font-mono shrink-0">
                   [{formatTimestamp(log.timestamp)}]
                 </span>
 
@@ -247,19 +247,19 @@ export default function JobTerminal({
           <motion.div
             animate={{ opacity: [1, 0] }}
             transition={{ repeat: Infinity, duration: 1 }}
-            className="inline-block w-2 h-4 bg-green-400 ml-1"
+            className="inline-block w-2 h-4 bg-green-600 dark:bg-green-400 ml-1"
           />
         )}
       </div>
 
       {/* Terminal Footer */}
       {logs.length > 0 && (
-        <div className="bg-gray-800 px-4 py-2 border-t border-gray-700 flex items-center justify-between text-xs text-gray-400">
+        <div className="bg-muted px-4 py-2 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
           <span>
             {logs.length} log entr{logs.length === 1 ? 'y' : 'ies'}
           </span>
           {!isAutoScroll && (
-            <span className="text-yellow-400">
+            <span className="text-yellow-600 dark:text-yellow-400">
               Auto-scroll paused - scroll to bottom to resume
             </span>
           )}
