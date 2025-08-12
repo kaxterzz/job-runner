@@ -33,8 +33,6 @@ This will start both the mock server and React app simultaneously.
 
 ## Features
 
-### ✅ **Completed Implementation**
-
 1. **Functional Input Area with Validation**
    - Dynamic parameter input fields with real-time validation
    - Field name validation (letters, numbers, _, -)
@@ -50,7 +48,6 @@ This will start both the mock server and React app simultaneously.
 
 3. **Live Status Updates**
    - WebSocket connection for real-time updates
-   - Status progression: Idle → Queued → Running → Completed
    - Live progress indicators with percentage
    - Toast notifications for status changes
 
@@ -90,12 +87,6 @@ The application simulates a "Due Diligence Check" job that:
 - Generates IC (Investment Committee) documentation
 - Creates compliance violation reports
 - Provides risk scoring and analysis metrics
-
-## API Endpoints
-
-- `POST /api/jobs/run` - Start job execution
-- `GET /api/jobs/:jobId` - Get job details
-- `GET /api/jobs/:jobId/logs` - Get job logs
 
 ## WebSocket Events
 
