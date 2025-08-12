@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import { Terminal, Copy, Download, Play, Square } from 'lucide-react'
+import { Terminal, Copy, Download, } from 'lucide-react'
 import { Button } from '../ui/button'
 
 interface LogEntry {

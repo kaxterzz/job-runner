@@ -48,7 +48,7 @@ export default function JobProgress({ currentStep, totalSteps = 4 }: JobProgress
 
         {/* Steps */}
         <div className="flex items-center justify-between">
-          {steps.map((step, index) => (
+          {steps.map((step) => (
             <div key={step.id} className="flex items-center">
               {/* Step Circle */}
               <div className="flex items-center">

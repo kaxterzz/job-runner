@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useForm, useFieldArray, Controller } from 'react-hook-form'
 import { Plus, X } from 'lucide-react'
 import { Button } from '../ui/button'
@@ -17,7 +17,7 @@ interface DynamicInputFieldsProps {
 }
 
 export default function DynamicInputFields({ onChange, onValidationChange }: DynamicInputFieldsProps) {
-  const { control, handleSubmit, formState: { errors, isValid }, watch, trigger } = useForm<{ inputs: InputField[] }>({
+  const { control, formState: { errors, isValid }, watch, trigger } = useForm<{ inputs: InputField[] }>({
     defaultValues: {
       inputs: [{ field: '', value: '' }]
     },
