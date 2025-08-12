@@ -1,3 +1,5 @@
+// Job store - manages all job execution state including socket connections and simulation
+// Global Zustand store for job configuration, execution, and results
 import { create } from 'zustand'
 import { io, Socket } from 'socket.io-client'
 import { toast } from 'sonner'

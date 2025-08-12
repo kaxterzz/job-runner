@@ -1,3 +1,5 @@
+// File upload component - handles drag & drop and file selection for jobs
+// Props: onFilesChange (function), onValidationChange (function)
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useRef, useCallback } from 'react'
 import { Upload, X, FileText, FileSpreadsheet, File, AlertCircle } from 'lucide-react'

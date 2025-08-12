@@ -1,3 +1,5 @@
+// Top navigation component - header bar with search, notifications, and user menu
+// Props: onMenuToggle (function)
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { useState } from 'react'

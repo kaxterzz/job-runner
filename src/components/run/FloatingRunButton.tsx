@@ -1,3 +1,5 @@
+// Floating action button - appears when job is ready to run and triggers execution
+// No props required - gets state from job store
 import { motion, AnimatePresence } from 'framer-motion'
 import { Play, Sparkles } from 'lucide-react'
 import { useCallback } from 'react'

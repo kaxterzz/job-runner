@@ -1,3 +1,5 @@
+// Job tabs component - provides navigation between Run, Jobs, History, and Schedule tabs
+// No props required
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Clock, FileText, History, Calendar, Play } from 'lucide-react'

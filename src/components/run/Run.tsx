@@ -1,3 +1,5 @@
+// Main job execution component - displays different views based on job status
+// Shows configuration form, live terminal during execution, and results after completion
 import { motion } from 'framer-motion'
 import { useCallback } from 'react'
 import { Square, RotateCcw } from 'lucide-react'

@@ -1,3 +1,5 @@
+// Main app layout component - combines navigation, header, and content areas
+// Props: children (ReactNode)
 import React, { useState } from 'react'
 import SideNavigation from '../nav/SideNavigation'
 import TopNavigation from '../nav/TopNavigation'

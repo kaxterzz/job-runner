@@ -1,3 +1,5 @@
+// Side navigation component - left sidebar with menu items and logo
+// Props: isOpen (boolean), onToggle (function)
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { 

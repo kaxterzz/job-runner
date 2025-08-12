@@ -1,3 +1,5 @@
+// Terminal component - displays real-time job logs with auto-scroll and controls
+// Props: logs (array), isRunning (boolean), jobStatus (string), onClear (function), onCopy (function), className (string)
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { Terminal, Copy, Download } from 'lucide-react'

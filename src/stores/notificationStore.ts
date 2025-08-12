@@ -1,3 +1,5 @@
+// Notification store - manages app notifications and unread counts
+// Global Zustand store for notification state management
 import { create } from 'zustand'
 
 interface AppState {

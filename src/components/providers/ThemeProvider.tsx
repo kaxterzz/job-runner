@@ -1,3 +1,5 @@
+// Theme provider component - wraps app with light/dark theme functionality
+// Props: children (ReactNode)
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
 interface ThemeProviderProps {

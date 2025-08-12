@@ -1,3 +1,5 @@
+// Dynamic input fields component - allows users to add/remove job parameters
+// Props: onChange (function), onValidationChange (function)
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect } from 'react'
 import { useForm, useFieldArray, Controller } from 'react-hook-form'

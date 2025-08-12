@@ -1,3 +1,5 @@
+// Page header component - shows page title and run button when job is ready
+// No props required - gets state from job store
 import { Copy, Play } from 'lucide-react'
 import { useCallback } from 'react'
 import { Button } from '../ui/button'

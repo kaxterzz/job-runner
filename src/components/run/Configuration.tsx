@@ -1,3 +1,5 @@
+// Configuration component - shows job requirements and validates uploaded files
+// Props: uploadedFiles (array), onConfigurationChange (function)
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Check, FileText, AlertTriangle } from 'lucide-react'

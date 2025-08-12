@@ -1,3 +1,5 @@
+// Job results component - displays completed job metrics, reports, and next steps
+// Props: results (object), className (string)
 import { motion } from 'framer-motion'
 import { Download, FileText, BarChart3, Clock, Variable, AlertTriangle } from 'lucide-react'
 import { Button } from '../ui/button'
